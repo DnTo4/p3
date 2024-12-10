@@ -25,8 +25,7 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String tipo_usuario = request.getParameter("tipo_usuario");
 
-        JugadorDTO nuevoJugador = new JugadorDTO(nombre, apellidos, fechaNacimiento, LocalDate.now(), correo);
-        nuevoJugador.setPassword(password); // suponer que tienes un método para establecer contraseñas.
+        JugadorDTO nuevoJugador = new JugadorDTO(nombre, apellidos, fechaNacimiento, LocalDate.now(), correo, password);
 
         int status = jugadorDAO.addJugador(nuevoJugador);
 

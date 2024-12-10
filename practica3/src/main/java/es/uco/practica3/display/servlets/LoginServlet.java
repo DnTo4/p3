@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -17,8 +19,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String correo = request.getParameter("correo");
         String password = request.getParameter("password");
-
-        JugadorDTO jugador = jugadorDAO.getJugadorByEmail(correo);
+        JugadorDTO jugadorTemp = new JugadorDTO("n", "a", new Date(), LocalDate.now(), correo, password);
+        JugadorDTO jugador = jugadorDAO.getJugadorByEmail(jugadorTemp);
 
         if (jugador != null && jugador.getPassword().equals(password)) {
             request.getSession().setAttribute("usuario", jugador);
