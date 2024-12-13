@@ -1,13 +1,14 @@
-package es.uco.practica2.data.dao;
+package es.uco.practica3.data.dao;
 
 // Importaciones necesarias para la funcionalidad del DAO
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
-//import com.mysql.jdbc.ResultSet;
-import es.uco.practica2.business.*;
-import es.uco.practica2.data.common.DBConnection;
+
+import es.uco.practica3.business.*;
+import es.uco.practica3.data.common.DBConnection;
+
 import java.util.List;
 import java.util.Properties;
 import java.util.ArrayList;

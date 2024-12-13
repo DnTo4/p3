@@ -1,4 +1,4 @@
-package es.uco.practica2.business;
+package es.uco.practica3.business;
 
 public class PistaDTO {
 	private int id;

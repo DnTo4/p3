@@ -1,4 +1,4 @@
-package es.uco.practica2.data.dao;
+package es.uco.practica3.data.dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,8 +14,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
-import es.uco.practica2.business.*;
-import es.uco.practica2.data.common.DBConnection;
+import es.uco.practica3.business.*;
+import es.uco.practica3.data.common.DBConnection;
 
 /**
  * Clase ReservaDAO.

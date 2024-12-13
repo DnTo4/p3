@@ -1,7 +1,7 @@
-package es.uco.practica2.data.dao;
+package es.uco.practica3.data.dao;
 
-import es.uco.practica2.business.BonoDTO;
-import es.uco.practica2.data.common.DBConnection;
+import es.uco.practica3.business.BonoDTO;
+import es.uco.practica3.data.common.DBConnection;
 
 // Importaciones necesarias:
 import java.io.FileInputStream;

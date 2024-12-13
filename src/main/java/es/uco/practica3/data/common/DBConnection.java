@@ -1,4 +1,4 @@
-package es.uco.practica2.data.common;
+package es.uco.practica3.data.common;
 
 import java.io.FileInputStream;
 import java.io.IOException;

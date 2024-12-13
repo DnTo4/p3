@@ -1,4 +1,4 @@
-package es.uco.practica2.data.dao;
+package es.uco.practica3.data.dao;
 
 // Importación de clases necesarias
 import java.io.FileInputStream;
@@ -8,8 +8,9 @@ import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Properties;
-import es.uco.practica2.business.*;
-import es.uco.practica2.data.common.DBConnection;
+
+import es.uco.practica3.business.*;
+import es.uco.practica3.data.common.DBConnection;
 
 /**
  * Clase DAO que gestiona las operaciones de acceso a datos para los materiales.

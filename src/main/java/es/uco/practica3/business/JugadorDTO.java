@@ -1,4 +1,4 @@
-package es.uco.practica2.business;
+package es.uco.practica3.business;
 
 import java.util.Date;
 import java.time.LocalDate;
@@ -10,16 +10,16 @@ public class JugadorDTO {
     private Date fecha_nacimiento;
     private LocalDate fecha_inscripcion;
     private String correo_electronico;
+    private String contrasenia;
 
-    // Constructor que incluye el ID
     public JugadorDTO(String nombre, String apellidos, Date fecha_nacimiento, LocalDate fecha_inscripcion,
-                      String correo_electronico) {
-        //this.id = id;
+                      String correo_electronico, String contrasenia) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.fecha_nacimiento = fecha_nacimiento;
         this.fecha_inscripcion = fecha_inscripcion;
         this.correo_electronico = correo_electronico;
+        this.contrasenia = contrasenia;
     }
 	
 	public JugadorDTO() {}
@@ -97,11 +97,15 @@ public class JugadorDTO {
 		this.correo_electronico = correo_electronico;
 	}
 	
+	public void setPassword(String password) {this.contrasenia = password;}
+	
+	public String getPassword() {return this.contrasenia;}
+	
 	@Override
 	public String toString() {
         return "JugadorDTO [nombre=" + nombre + ", apellidos=" + apellidos + ", fecha_nacimiento="
                 + fecha_nacimiento + ", fecha_inscripcion=" + fecha_inscripcion + ", correo_electronico="
                 + correo_electronico + "]";
 	}
-	
+
 }

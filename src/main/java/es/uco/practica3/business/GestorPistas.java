@@ -1,7 +1,8 @@
-package es.uco.practica2.business;
+package es.uco.practica3.business;
 
 import java.util.List;
-import es.uco.practica2.data.dao.*;
+
+import es.uco.practica3.data.dao.*;
 
 public class GestorPistas {
 

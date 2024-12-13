@@ -1,9 +1,9 @@
-package es.uco.practica2.business;
-
-import es.uco.practica2.data.dao.ReservaDAO;
+package es.uco.practica3.business;
 
 import java.util.Date;
 import java.util.List;
+
+import es.uco.practica3.data.dao.ReservaDAO;
 
 public class GestorReservas {
 	

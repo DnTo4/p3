@@ -1,7 +1,7 @@
-package es.uco.practica2.data.dao;
+package es.uco.practica3.data.dao;
 
-import es.uco.practica2.business.JugadorDTO;
-import es.uco.practica2.data.common.DBConnection;
+import es.uco.practica3.business.JugadorDTO;
+import es.uco.practica3.data.common.DBConnection;
 
 // Importaciones necesarias:
 import java.io.FileInputStream;
@@ -66,6 +66,7 @@ public class JugadorDAO {
 	            stmt.setDate(3, new java.sql.Date(jugador.getFecha_nacimiento().getTime()));
 	            stmt.setDate(4, java.sql.Date.valueOf(jugador.getFecha_inscripcion()));
 	            stmt.setString(5, jugador.getCorreo_electronico());
+	            stmt.setString(6, jugador.getPassword());
 	            return stmt.executeUpdate();
 			} else {
 				return 0; // El jugador ya existe
@@ -96,6 +97,7 @@ public class JugadorDAO {
 	        stmt.setString(2, jugador.getApellidos());
 	        stmt.setDate(3, new java.sql.Date(jugador.getFecha_nacimiento().getTime()));
 	        stmt.setString(4, jugador.getCorreo_electronico());
+	        stmt.setString(5, jugador.getPassword());
 	        return stmt.executeUpdate();
 			
         } catch (SQLException e) {
@@ -152,7 +154,8 @@ public class JugadorDAO {
                 Date fechaI = rs.getDate("fecha_inscripcion");
                 LocalDate fechaIns = fechaI.toLocalDate();
                 String correo = rs.getString("correo_electronico");
-                jugadores.add(new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo));
+                String contrasenia = rs.getString("contrasenia");
+                jugadores.add(new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia));
 			}
 			if (stmt != null) {
 				stmt.close();
@@ -161,5 +164,35 @@ public class JugadorDAO {
             e.printStackTrace();
         }
         return jugadores; // Retorna la lista de jugadores
+    }
+    
+    public JugadorDTO getJugadorByEmail(JugadorDTO jugador)
+    {
+    	JugadorDTO jug = new JugadorDTO();
+    	try {
+        	DBConnection dbcon = new DBConnection();
+			Connection con = dbcon.getConnection();
+        	PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("getJugCorreo"));
+        	stmt.setString(1, jugador.getCorreo_electronico());        	
+        	
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+            	String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellidos");
+                Date fechaN = rs.getDate("fecha_nacimiento");
+                Date fechaI = rs.getDate("fecha_inscripcion");
+                LocalDate fechaIns = fechaI.toLocalDate();
+                String correo = rs.getString("correo_electronico");
+                String contrasenia = rs.getString("contrasenia");
+                
+                jug = new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia);
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return jug;
     }
 }
