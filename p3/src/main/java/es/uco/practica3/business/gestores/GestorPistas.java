@@ -3,7 +3,8 @@ package es.uco.practica3.business.gestores;
 import java.util.List;
 
 import es.uco.practica3.data.dao.*;
-import es.uco.practica3.business.DTO.*;
+import es.uco.practica3.business.DTO.PistaDTO;
+import es.uco.practica3.business.DTO.MaterialDTO;
 
 public class GestorPistas {
 
