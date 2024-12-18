@@ -20,7 +20,7 @@ public class ReservaServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        
+
         switch (action) {
             case "crearReservaIndividual":
                 crearReservaIndividual(request, response);
@@ -34,14 +34,15 @@ public class ReservaServlet extends HttpServlet {
             case "cancelarReserva":
                 cancelarReserva(request, response);
                 break;
-            case "consultarReservasFuturas":
-                consultarReservasFuturas(request, response);
+            case "consultarReservasRango":
+                consultarReservasRangoFechas(request, response);  // NUEVO
                 break;
             default:
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Acción no válida.");
                 break;
         }
     }
+
 
     private void crearReservaIndividual(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Date fecha = Date.valueOf(request.getParameter("fecha"));
@@ -118,4 +119,43 @@ public class ReservaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
+
+    private void consultarReservasRangoFechas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            // Obtenemos las fechas de inicio y fin de la solicitud
+            String fechaInicioStr = request.getParameter("fechaInicio");
+            String fechaFinStr = request.getParameter("fechaFin");
+
+            // Convertir las fechas a tipo Date
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date fechaInicio = sdf.parse(fechaInicioStr);
+            Date fechaFin = sdf.parse(fechaFinStr);
+
+            // Consultar las reservas entre las fechas
+            List<ReservasDTO> reservas = gestorReservas.consultarReservasPorRangoFechas(fechaInicio, fechaFin);
+
+            // Separar las reservas en futuras y finalizadas
+            List<ReservasDTO> reservasFuturas = new ArrayList<>();
+            List<ReservasDTO> reservasFinalizadas = new ArrayList<>();
+            Date currentDate = new Date(); // Fecha actual
+
+            for (ReservasDTO reserva : reservas) {
+                if (reserva.getFecha().after(currentDate)) {
+                    reservasFuturas.add(reserva);  // Si la fecha de la reserva es posterior a la actual
+                } else {
+                    reservasFinalizadas.add(reserva);  // Si la fecha de la reserva es anterior a la actual
+                }
+            }
+
+            // Pasamos las reservas a la vista JSP
+            request.setAttribute("reservasFuturas", reservasFuturas);
+            request.setAttribute("reservasFinalizadas", reservasFinalizadas);
+
+            // Redirigimos a la vista JSP para mostrar las reservas
+            request.getRequestDispatcher("/consultarReservas.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error en la consulta de reservas.");
+        }
 }
