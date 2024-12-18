@@ -23,21 +23,21 @@ import java.time.LocalDate;
  */
 public class JugadorDAO {
 	
-	private Properties propiedades = new Properties();
+	//private Properties propiedades = new Properties();
 	
 	/**
      * Constructor de la clase JugadorDAO.
      * Carga las propiedades necesarias para la conexión con la base de datos y las consultas SQL
      * desde un archivo de propiedades llamado "sql.properties".
      */
-	public JugadorDAO() {
+	/*public JugadorDAO() {
 		try (InputStream input = new FileInputStream("sql.properties")) {
 			this.propiedades.load(input);
 		} catch (IOException ex) {
 			System.out.println("Error al cargar las propiedades: " + ex.getMessage());
 			return;
 		}
-	}
+	}*/
 	
 	/**
      * Agrega un nuevo jugador a la base de datos.
@@ -49,12 +49,12 @@ public class JugadorDAO {
      *         1 si se inserta correctamente.
      */
     public int addJugador(JugadorDTO jugador) {
-        String sql = this.propiedades.getProperty("addJugInsert");
+        String sql = "INSERT INTO jugadores (nombre, apellidos, fecha_nacimiento, fecha_inscripcion, correo_electronico) VALUES (?, ?, ?, ?, ?)";
         try {
         	DBConnection dbcon = new DBConnection();
 			Connection con = dbcon.getConnection();
 			
-			PreparedStatement stmtsel = con.prepareStatement(this.propiedades.getProperty("addJugSelect"));
+			PreparedStatement stmtsel = con.prepareStatement("select * from jugadores where correo_electronico = ?");
 			stmtsel.setString(1, jugador.getCorreo_electronico());
 			ResultSet rs = stmtsel.executeQuery();
 			
@@ -87,7 +87,7 @@ public class JugadorDAO {
      *         1 si se actualiza correctamente.
      */
     public int updateJugador(JugadorDTO jugador) {
-        String sql = this.propiedades.getProperty("updJugUpdate");
+        String sql = "UPDATE jugadores SET nombre = ?, apellidos = ?, fecha_nacimiento = ? WHERE correo_electronico = ?";
         try {
         	DBConnection dbcon = new DBConnection();
 			Connection con = dbcon.getConnection();
@@ -121,7 +121,7 @@ public class JugadorDAO {
 			DBConnection dbConnection = new DBConnection();
 			Connection con = dbConnection.getConnection();
 				
-			PreparedStatement ps = con.prepareStatement(this.propiedades.getProperty("delJugDelete"));
+			PreparedStatement ps = con.prepareStatement("delete from jugadores where correo_electronico = ?");
 			ps.setString(1, jugador.getCorreo_electronico());
 				
 			status = ps.executeUpdate();
@@ -140,7 +140,7 @@ public class JugadorDAO {
      */
     public List<JugadorDTO> getAllJugadores() {
         List<JugadorDTO> jugadores = new ArrayList<>();
-        String sql = this.propiedades.getProperty("getJugSelect");
+        String sql = "SELECT * FROM jugadores";
         try {
         	DBConnection dbcon = new DBConnection();
 			Connection con = dbcon.getConnection();
@@ -172,7 +172,7 @@ public class JugadorDAO {
     	try {
         	DBConnection dbcon = new DBConnection();
 			Connection con = dbcon.getConnection();
-        	PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("getJugCorreo"));
+        	PreparedStatement stmt = con.prepareStatement("SELECT * FROM jugadores where correo_electronico = ?");
         	stmt.setString(1, jugador.getCorreo_electronico());        	
         	
             ResultSet rs = stmt.executeQuery();
@@ -202,7 +202,7 @@ public class JugadorDAO {
     	try {
         	DBConnection dbcon = new DBConnection();
 			Connection con = dbcon.getConnection();
-        	PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("getJugCorreo"));
+        	PreparedStatement stmt = con.prepareStatement("SELECT * FROM jugadores where correo_electronico = ?");
         	stmt.setString(1, email);        	
         	
             ResultSet rs = stmt.executeQuery();
