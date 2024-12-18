@@ -313,4 +313,43 @@ public class ReservaDAO {
 		}
 		return reserva;
 	}
+
+	// Método para obtener reservas entre un rango de fechas
+	public List<ReservasDTO> listarReservasPorRangoFechas(Date fechaInicio, Date fechaFin) {
+		List<ReservasDTO> reservas = new ArrayList<>();
+		Connection conn = dbConnection.getConnection();
+
+        	try {
+			String sql = "SELECT * FROM reservas WHERE fecha BETWEEN ? AND ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setDate(1, new java.sql.Date(fechaInicio.getTime()));
+			stmt.setDate(2, new java.sql.Date(fechaFin.getTime()));
+
+			ResultSet rs = stmt.executeQuery();
+
+		while (rs.next()) {
+			// Crear el objeto ReservaDTO
+			ReservasDTO reserva = new ReservasDTO(
+				rs.getDate("fecha"),
+				rs.getInt("duracion"),
+				rs.getInt("id_pista"),
+				rs.getFloat("precio"),
+				rs.getFloat("descuento"),
+				rs.getInt("tipo_reserva"),
+				rs.getInt("num_ninios"),
+				rs.getInt("num_adultos"),
+				rs.getInt("id_bono"),
+				-1  // No se usará el campo estado, para no modificar la BBDD
+			);
+
+			reservas.add(reserva);
+		}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return reservas;
+	}
 }
