@@ -1,10 +1,10 @@
 package es.uco.practica3.data.common;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+//import java.io.FileInputStream;
+//import java.io.IOException;
+//import java.io.InputStream;
 import java.sql.*;
-import java.util.Properties;
+//import java.util.Properties;
 
 public class DBConnection {
 	
@@ -12,13 +12,13 @@ public class DBConnection {
 	
 	// Important: This configuration is hard-coded here for illustrative purposes only
 	
-	//protected String url = "jdbc:mysql://oraclepr.uco.es:3306/i22tagrd";
+	protected String url = "jdbc:mysql://oraclepr.uco.es:3306/i22tagrd";
 
-	//protected String user = "i22tagrd";
+	protected String user = "i22tagrd";
 
-	//protected String password = "BBDDPW24";
+	protected String password = "BBDDPW24";
 	
-	private String url;
+	/*private String url;
 	private String user;
 	private String password;
 	
@@ -39,7 +39,7 @@ public class DBConnection {
         this.url = propiedades.getProperty("url");
         this.user = propiedades.getProperty("user");
         this.password = propiedades.getProperty("password");
-	}
+	}*/
 	
 	public Connection getConnection(){
 
