@@ -3,7 +3,7 @@ package es.uco.practica3.business.gestores;
 import java.util.List;
 
 import es.uco.practica3.data.dao.JugadorDAO;
-import es.uco.practica3.business.DTO.*;
+import es.uco.practica3.business.DTO.JugadorDTO;
 
 import java.util.Date;
 import java.time.LocalDate;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import es.uco.practica3.data.dao.ReservaDAO;
 
-import es.uco.practica3.business.DTO.*;
+import es.uco.practica3.business.DTO.ReservasDTO;
 
 public class GestorReservas {
 	
