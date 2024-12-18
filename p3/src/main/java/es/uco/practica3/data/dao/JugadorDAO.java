@@ -195,4 +195,34 @@ public class JugadorDAO {
         }
         return jug;
     }
+    
+    public JugadorDTO getJugadorByEmail(String email)
+    {
+    	JugadorDTO jug = new JugadorDTO();
+    	try {
+        	DBConnection dbcon = new DBConnection();
+			Connection con = dbcon.getConnection();
+        	PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("getJugCorreo"));
+        	stmt.setString(1, email);        	
+        	
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+            	String nombre = rs.getString("nombre");
+                String apellidos = rs.getString("apellidos");
+                Date fechaN = rs.getDate("fecha_nacimiento");
+                Date fechaI = rs.getDate("fecha_inscripcion");
+                LocalDate fechaIns = fechaI.toLocalDate();
+                String correo = rs.getString("correo_electronico");
+                String contrasenia = rs.getString("contrasenia");
+                
+                jug = new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia);
+			}
+			if (stmt != null) {
+				stmt.close();
+			}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return jug;
+    }
 }
