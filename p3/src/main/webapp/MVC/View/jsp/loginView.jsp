@@ -30,7 +30,7 @@ if (customerBean != null && !customerBean.getEmailUser().equals("")) {
 	<label for="correo_electronico">Email: </label>
 	<input type ="text" name="correo_electronico" value=""><br/>
 	<label for="contrasenia">Password: </label>
-	<input type ="text" name="contrasenia" value="">
+	<input type ="password" name="contrasenia" value="">
 	<br/>
 	<input type="submit" value="Submit">
 </form>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import ="es.uco.practica3.business.DTO.JugadorDTO,es.uco.practica3.data.dao.JugadorDAO" %>
+<%@page errorPage="errorPage.jsp" %>
 <jsp:useBean  id="customerBean" scope="session" class="es.uco.practica3.display.CustomerBean"></jsp:useBean>
 <%
 /* Posibles flujos:
@@ -25,7 +26,7 @@ if (emailUser != null) {
 
 	//Se realizan todas las comprobaciones necesarias del dominio
 	//Aquí sólo comprobamos que exista el usuario
-	if (jugador != null && jugador.getPassword().equalsIgnoreCase(password)) {
+	if (jugador != null && jugador.getPassword().equals(password)) {
 		// Usuario válido		
 %>
 <jsp:setProperty property="emailUser" value="<%=emailUser%>" name="customerBean"/>
