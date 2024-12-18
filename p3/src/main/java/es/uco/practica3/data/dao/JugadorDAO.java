@@ -49,7 +49,7 @@ public class JugadorDAO {
      *         1 si se inserta correctamente.
      */
     public int addJugador(JugadorDTO jugador) {
-        String sql = "INSERT INTO jugadores (nombre, apellidos, fecha_nacimiento, fecha_inscripcion, correo_electronico) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO jugadores (nombre, apellidos, fecha_nacimiento, fecha_inscripcion, correo_electronico, contrasenia, rol) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
         	DBConnection dbcon = new DBConnection();
 			Connection con = dbcon.getConnection();
@@ -67,6 +67,7 @@ public class JugadorDAO {
 	            stmt.setDate(4, java.sql.Date.valueOf(jugador.getFecha_inscripcion()));
 	            stmt.setString(5, jugador.getCorreo_electronico());
 	            stmt.setString(6, jugador.getPassword());
+	            stmt.setInt(7, jugador.getRol());
 	            return stmt.executeUpdate();
 			} else {
 				return 0; // El jugador ya existe

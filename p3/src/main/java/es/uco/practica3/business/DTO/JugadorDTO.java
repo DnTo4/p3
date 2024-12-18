@@ -1,7 +1,11 @@
 package es.uco.practica3.business.DTO;
 
-import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Date;
 
 public class JugadorDTO 
 {
@@ -23,6 +27,30 @@ public class JugadorDTO
         this.correo_electronico = correo_electronico;
         this.contrasenia = contrasenia;
         this.rol = 0;
+    }
+    
+    public JugadorDTO(String nombre, String apellidos, String fechaNacimientoStr, String fechaInscripcionStr,
+            String correoElectronico, String contrasenia) {
+    	this.nombre = nombre;
+    	this.apellidos = apellidos;
+    	this.correo_electronico = correoElectronico;
+    	this.contrasenia = contrasenia;
+    	this.rol = 0;
+
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // Define el formato esperado
+    	try {
+    		this.fecha_nacimiento = sdf.parse(fechaNacimientoStr); // Convierte String a Date
+    	} catch (ParseException e) {
+    		e.printStackTrace();
+    		throw new IllegalArgumentException("Formato de fecha incorrecto");
+    	}
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        try {
+            this.fecha_inscripcion = LocalDate.parse(fechaInscripcionStr, formatter);
+        } catch (DateTimeParseException e) {
+            e.printStackTrace();
+            throw new IllegalArgumentException("Formato de fecha_inscripcion incorrecto: " + fechaInscripcionStr);
+        }
     }
 	
 	public JugadorDTO() {}
