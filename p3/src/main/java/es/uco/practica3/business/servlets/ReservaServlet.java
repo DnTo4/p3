@@ -1,4 +1,4 @@
-package es.uco.practica3.web;
+package es.uco.practica3.business.servlets;
 
 import es.uco.practica3.business.DTO.ReservasDTO;
 import es.uco.practica3.business.gestores.GestorReservas;

@@ -1,4 +1,4 @@
-package es.uco.practica3.display.servlets;
+package es.uco.practica3.business.servlets;
 
 import es.uco.practica3.business.DTO.JugadorDTO;
 import es.uco.practica3.data.dao.JugadorDAO;
