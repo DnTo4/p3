@@ -138,4 +138,46 @@ public class PistaDAO {
             return -1;
         }
     }
+
+    public List<PistaDTO> buscarPistasDisponibles(int tipo, Date fecha) {
+    List<PistaDTO> lista = new ArrayList<>();
+    try {
+        DBConnection dbConnection = new DBConnection();
+        Connection con = dbConnection.getConnection();
+
+        // Consulta SQL para encontrar pistas disponibles según tipo y fecha
+        String query = "SELECT p.id, p.nombre, p.estado, p.tipo, p.tamanio, p.jugadores_max " +
+                       "FROM pistas p " +
+                       "WHERE p.tipo = ? " +
+                       "AND p.id NOT IN (" +
+                       "    SELECT r.id_pista " +
+                       "    FROM reservas r " +
+                       "    WHERE r.fecha = ?)" +
+                       "AND p.estado = 1";  // Solo se consideran pistas activas (estado = 1)
+
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setInt(1, tipo);  // Tipo de pista (interior o exterior)
+        stmt.setDate(2, fecha); // Fecha de búsqueda
+
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String nombre = rs.getString("nombre");
+            int estado = rs.getInt("estado");
+            int tamanio = rs.getInt("tamanio");
+            int jugadoresMax = rs.getInt("jugadores_max");
+            PistaDTO pista = new PistaDTO(nombre, estado, tipo, tamanio, jugadoresMax);
+            pista.setId(id);
+            lista.add(pista);
+        }
+
+        if (stmt != null) {
+            stmt.close();
+        }
+
+        } catch (SQLException e) {
+            System.err.println("Error al realizar la búsqueda de pistas disponibles: " + e.getMessage());
+        }
+        return lista;
+    }
 }
