@@ -65,4 +65,9 @@ public class GestorPistas {
 	{
 		return matDAO.listarMateriales();
 	}
+
+	public List<PistaDTO> buscarPistasDisponibles(int tipo, Date fecha) 
+	{
+		return pistaDAO.buscarPistasDisponibles(tipo, fecha);
+	}
 }
