@@ -144,18 +144,9 @@ public class PistaDAO {
     try {
         DBConnection dbConnection = new DBConnection();
         Connection con = dbConnection.getConnection();
+        
+        PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("buscarPistDisp"));
 
-        // Consulta SQL para encontrar pistas disponibles según tipo y fecha
-        String query = "SELECT p.id, p.nombre, p.estado, p.tipo, p.tamanio, p.jugadores_max " +
-                       "FROM pistas p " +
-                       "WHERE p.tipo = ? " +
-                       "AND p.id NOT IN (" +
-                       "    SELECT r.id_pista " +
-                       "    FROM reservas r " +
-                       "    WHERE r.fecha = ?)" +
-                       "AND p.estado = 1";  // Solo se consideran pistas activas (estado = 1)
-
-        PreparedStatement stmt = con.prepareStatement(query);
         stmt.setInt(1, tipo);  // Tipo de pista (interior o exterior)
         stmt.setDate(2, fecha); // Fecha de búsqueda
 
@@ -179,5 +170,25 @@ public class PistaDAO {
             System.err.println("Error al realizar la búsqueda de pistas disponibles: " + e.getMessage());
         }
         return lista;
+    }
+    
+    public int modificarEstadoPista(String nombre, int estado)
+    {
+    	int status = 0;
+    	try {
+    		DBConnection dbConnection = new DBConnection();
+            Connection con = dbConnection.getConnection();
+            
+            PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("modificarPista"));
+            stmt.setInt(1, estado);
+            stmt.setString(2, nombre);
+            
+            status = stmt.executeUpdate();
+    	}catch (SQLException e) {
+            System.err.println("Error al modificar la pista: " + e.getMessage());
+            return -1;
+        }
+    	
+    	 return status;
     }
 }

@@ -1,7 +1,6 @@
 package es.uco.practica3.business.gestores;
 
 import java.util.List;
-
 import es.uco.practica3.data.dao.*;
 import es.uco.practica3.business.DTO.PistaDTO;
 import es.uco.practica3.business.DTO.MaterialDTO;
@@ -66,8 +65,13 @@ public class GestorPistas {
 		return matDAO.listarMateriales();
 	}
 
-	public List<PistaDTO> buscarPistasDisponibles(int tipo, Date fecha) 
+	public List<PistaDTO> buscarPistasDisponibles(int tipo, java.sql.Date fecha) 
 	{
 		return pistaDAO.buscarPistasDisponibles(tipo, fecha);
+	}
+	
+	public int modificarEstadoPista(String nombre, int estado)
+	{
+		return pistaDAO.modificarEstadoPista(nombre, estado);
 	}
 }

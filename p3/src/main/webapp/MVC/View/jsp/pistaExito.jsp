@@ -1,13 +1,16 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pista Creada</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <title>Creación Exitosa</title>
+    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
-    <h1>¡Pista creada con éxito!</h1>
-    <p>La pista "<%= request.getAttribute("nombrePista") %>" ha sido creada correctamente.</p>
-    <a href="crearPista.jsp">Volver al formulario</a>
+    <div class="container success">
+        <h1>¡Éxito!</h1>
+        <p><%= request.getParameter("mensaje") %></p>
+        <a href="crearPistaView.jsp" class="btn">Volver al Formulario</a>
+    </div>
 </body>
 </html>
