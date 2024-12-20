@@ -3,13 +3,15 @@
 <html>
 <head>
     <title>Pista Modificada</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
     <h1>Estado de la Pista Modificado</h1>
     <p>El estado de la pista se ha modificado correctamente.</p>
-    <button onclick="location.href='../../../Controller/pistas/ModificarPista.jsp'">Volver al Formulario</button>
-    <button onclick="location.href='../dashboard.jsp'">Volver al Menú Principal</button>
+    <div class="buttons">
+        <a href="../../View/jsp/Pistas/ModificarPista.jsp" class="btn">Volver al formulario</a>
+        <a href="../../View/html/menuAdmin.html" class="btn">Volver al menú principal</a>
+    </div>
 </body>
 </html>
 

@@ -177,4 +177,24 @@ public class PistaDAO {
     	
     	 return status;
     }
+    
+    public int existePista(String nombre)
+    {
+    	int status = 0;
+    	try {
+    		DBConnection dbConnection = new DBConnection();
+            Connection con = dbConnection.getConnection();
+            
+            PreparedStatement stmt = con.prepareStatement("select * from pista where nombre = ?");
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {status += 1;}
+    	}catch (SQLException e) {
+            System.err.println("Error al buscar la pista: " + e.getMessage());
+            return -1;
+        }
+    	
+    	 return status;
+    }
 }
