@@ -22,22 +22,7 @@ import java.util.ArrayList;
  */
 public class PistaDAO {
 
-    private Properties propiedades = new Properties();
-
-    /**
-     * Constructor de la clase PistaDAO.
-     * 
-     * Este constructor carga las propiedades de configuración necesarias para las consultas SQL
-     * desde un archivo llamado "sql.properties". Si hay un error al cargar las propiedades,
-     * se muestra un mensaje de error en la consola.
-     */
     public PistaDAO() {
-        try (InputStream input = new FileInputStream("sql.properties")) {
-            this.propiedades.load(input);
-        } catch (IOException ex) {
-            System.out.println("Error al cargar las propiedades: " + ex.getMessage());
-            return;
-        }
     }
 
     /**
@@ -53,12 +38,12 @@ public class PistaDAO {
             DBConnection dbConnection = new DBConnection();
             Connection con = dbConnection.getConnection();
 
-            PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("crearPistSelect"));
+            PreparedStatement stmt = con.prepareStatement("select * from pistas where nombre = ?");
             stmt.setString(1, pista.getNombre());
             ResultSet rs = stmt.executeQuery();
 
             if (!rs.next()) {
-                PreparedStatement ps = con.prepareStatement(this.propiedades.getProperty("crearPistInsert"));
+                PreparedStatement ps = con.prepareStatement("insert into pistas (nombre,estado,tipo,tamanio,jugadores_max) values(?,?,?,?,?)");
                 ps.setString(1, pista.getNombre());
                 ps.setInt(2, pista.getEstado());
                 ps.setInt(3, pista.getTipo());
@@ -89,7 +74,7 @@ public class PistaDAO {
             DBConnection dbConnection = new DBConnection();
             Connection con = dbConnection.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(this.propiedades.getProperty("listPistSelect"));
+            ResultSet rs = stmt.executeQuery("select * from pistas");
 
             while (rs.next()) {
                 String nombre = rs.getString("nombre");
@@ -125,7 +110,7 @@ public class PistaDAO {
             DBConnection dbConnection = new DBConnection();
             Connection con = dbConnection.getConnection();
 
-            PreparedStatement ps = con.prepareStatement(this.propiedades.getProperty("borrarPistDelete"));
+            PreparedStatement ps = con.prepareStatement("delete from pistas where nombre=?");
             ps.setString(1, pista.getNombre());
 
             status = ps.executeUpdate();
@@ -141,11 +126,12 @@ public class PistaDAO {
 
     public List<PistaDTO> buscarPistasDisponibles(int tipo, Date fecha) {
     List<PistaDTO> lista = new ArrayList<>();
+    String sql = "SELECT * FROM pistas WHERE tipo = ? AND p.id NOT IN (SELECT id_pista FROM reservas WHERE fecha = ?) AND estado = 1";
     try {
         DBConnection dbConnection = new DBConnection();
         Connection con = dbConnection.getConnection();
         
-        PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("buscarPistDisp"));
+        PreparedStatement stmt = con.prepareStatement(sql);
 
         stmt.setInt(1, tipo);  // Tipo de pista (interior o exterior)
         stmt.setDate(2, fecha); // Fecha de búsqueda
@@ -179,7 +165,7 @@ public class PistaDAO {
     		DBConnection dbConnection = new DBConnection();
             Connection con = dbConnection.getConnection();
             
-            PreparedStatement stmt = con.prepareStatement(this.propiedades.getProperty("modificarPista"));
+            PreparedStatement stmt = con.prepareStatement("UPDATE pistas SET estado = ? WHERE nombre = ?");
             stmt.setInt(1, estado);
             stmt.setString(2, nombre);
             
