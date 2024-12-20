@@ -29,7 +29,7 @@ h1 {
 .menu-button {
     display: block;
     width: 90%;
-    max-width: 300px; /* Define un máximo para evitar desbordamientos */
+    max-width: 300px;
     margin: 10px auto; /* Centra los botones automáticamente */
     padding: 15px;
     background-color: #4CAF50;
