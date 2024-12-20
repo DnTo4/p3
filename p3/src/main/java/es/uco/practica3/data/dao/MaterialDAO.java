@@ -19,8 +19,6 @@ import es.uco.practica3.data.common.DBConnection;
  */
 public class MaterialDAO {
 	
-	private Properties propiedades = new Properties();
-	
 	/**
 	 * Constructor de la clase MaterialDAO.
 	 * Inicializa el objeto Properties cargando las configuraciones de la conexión a la base de datos

@@ -38,7 +38,7 @@ public class GestorPistas {
 	{		
 			if(mat < 1 || mat > 3) {return -1;}
 		if(uso != 1 && uso != 2){return -1;}
-		if(estado != 1 && estado != 2){return -1;}
+		if(estado != 1 && estado != 2 && estado != 3){return -1;}
 		
 		MaterialDTO material = new MaterialDTO(mat, uso, estado, -1);
 		
