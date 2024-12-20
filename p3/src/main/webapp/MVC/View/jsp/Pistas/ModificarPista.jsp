@@ -4,12 +4,12 @@
 <html>
 <head>
     <title>Modificar Estado de Pista</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../../View/css/styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Modificar Estado de la Pista</h1>
-        <form action="/ModificarPistaServlet" method="post">
+        <form action="../../../Controller/pistas/ModificarPistaController.jsp" method="post">
             <label for="nombre">Nombre de la pista:</label>
             <input type="text" id="nombre" name="nombre" required /><br>
 

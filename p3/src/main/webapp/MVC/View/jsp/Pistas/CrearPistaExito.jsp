@@ -2,15 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Error en la creación de ñ la pista</title>
+    <title>Pista creada con éxito</title>
     <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
-    <h1>Error</h1>
+    <h1>¡Éxito!</h1>
     <p><%= request.getAttribute("mensaje") %></p>
     <div class="buttons">
-        <a href="../../View/jsp/crearPistaView.jsp" class="btn">Volver al formulario</a>
-        <a href="../../View/jsp/menuPrincipal.jsp" class="btn">Volver al menú principal</a>
+        <a href="../../View/jsp/Pistas/CrearPista.jsp" class="btn">Volver al formulario</a>
+        <a href="../../View/html/menuAdmin.html" class="btn">Volver al menú principal</a>
     </div>
 </body>
 </html>

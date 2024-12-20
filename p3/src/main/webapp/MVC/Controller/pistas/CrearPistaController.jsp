@@ -2,7 +2,7 @@
 <%@ page import="es.uco.practica3.business.gestores.GestorPistas" %>
 <%
     // Valores predeterminados
-    String nextPage = "../../View/jsp/pistaError.jsp";
+    String nextPage = "../../View/jsp/Pistas/CrearPistaError.jsp";
     String mensaje = "Error desconocido";
 
     try {
@@ -19,7 +19,7 @@
 
         if (resultado > 0) {
             // Éxito
-            nextPage = "../../View/jsp/pistaExito.jsp";
+            nextPage = "../../View/jsp/Pistas/CrearPistaExito.jsp";
             mensaje = "La pista '" + nombre + "' ha sido creada exitosamente.";
         } else if (resultado == 0) {
             mensaje = "La pista ya existe.";

@@ -1,16 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirmación</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
+    <title>Pista Modificada</title>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Confirmación</h1>
-        <p>Estado de la pista modificado exitosamente.</p>
-        <a href="/MVC/View/jsp/index.jsp" class="btn">Volver al inicio</a>
-    </div>
+    <h1>Estado de la Pista Modificado</h1>
+    <p>El estado de la pista se ha modificado correctamente.</p>
+    <button onclick="location.href='../../../Controller/pistas/ModificarPista.jsp'">Volver al Formulario</button>
+    <button onclick="location.href='../dashboard.jsp'">Volver al Menú Principal</button>
 </body>
 </html>
+

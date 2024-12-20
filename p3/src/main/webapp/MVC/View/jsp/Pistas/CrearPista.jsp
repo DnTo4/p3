@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Crear Pista</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
     <script>
         function validarFormulario(event) {
             const jugadoresMax = document.getElementById("jugadores_max").value;
@@ -16,7 +16,7 @@
 </head>
 <body>
     <h1>Crear Nueva Pista</h1>
-    <form action="../../View/jsp/crearPistaController.jsp" method="post" onsubmit="validarFormulario(event)">
+    <form action="../../../Controller/pistas/CrearPistaController.jsp" method="post" onsubmit="validarFormulario(event)">
         <label>Nombre:</label>
         <input type="text" name="nombre" required /><br>
 

@@ -1,16 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Error</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
+    <title>Error al Modificar Pista</title>
+    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Error</h1>
-        <p class="error"><%= request.getAttribute("mensajeError") %></p>
-        <a href="/MVC/View/jsp/index.jsp" class="btn">Volver al inicio</a>
-    </div>
+    <h1>Error al Modificar Pista</h1>
+    <p><%= request.getParameter("mensaje") %></p>
+    <button onclick="location.href='../../../Controller/pistas/ModificarPista.jsp'">Volver al Formulario</button>
+    <button onclick="location.href='../dashboard.jsp'">Volver al Menú Principal</button>
 </body>
 </html>
