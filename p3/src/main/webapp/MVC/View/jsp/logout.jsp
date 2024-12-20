@@ -18,6 +18,7 @@ Desconectando usuario... <br/>
 <%
 	// Para desconectar al usuario, se accede al método removeAttribute() de la sesión)
 	request.getSession().removeAttribute("customerBean");
+	response.sendRedirect("/p3");
 } %>
 <a href="/p3">Volver</a>
 </body>

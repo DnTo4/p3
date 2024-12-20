@@ -29,6 +29,17 @@ public class JugadorDTO
         this.rol = 0;
     }
     
+    public JugadorDTO(String nombre, String apellidos, Date fecha_nacimiento, LocalDate fecha_inscripcion,
+            String correo_electronico, String contrasenia, int rol) {
+    	this.nombre = nombre;
+    	this.apellidos = apellidos;
+    	this.fecha_nacimiento = fecha_nacimiento;
+    	this.fecha_inscripcion = fecha_inscripcion;
+    	this.correo_electronico = correo_electronico;
+    	this.contrasenia = contrasenia;
+    	this.rol = rol;
+}
+    
     public JugadorDTO(String nombre, String apellidos, String fechaNacimientoStr, String fechaInscripcionStr,
             String correoElectronico, String contrasenia) {
     	this.nombre = nombre;

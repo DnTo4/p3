@@ -23,7 +23,7 @@ if (customerBean == null || customerBean.getEmailUser()=="") {
         </div>
     </div>
 <% } else { %>
-	¡¡Bienvenido <jsp:getProperty property="emailUser" name="customerBean"/>!! 
+	¡¡Bienvenido <jsp:getProperty property="emailUser" name="customerBean"/>!!
 	<a href=/p3/MVC/View/jsp/logout.jsp>Desconectarse</a>
 <% } %>
 

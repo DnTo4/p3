@@ -185,8 +185,9 @@ public class JugadorDAO {
                 LocalDate fechaIns = fechaI.toLocalDate();
                 String correo = rs.getString("correo_electronico");
                 String contrasenia = rs.getString("contrasenia");
+                int rol = rs.getInt("rol");
                 
-                jug = new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia);
+                jug = new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia, rol);
 			}
 			if (stmt != null) {
 				stmt.close();
@@ -215,8 +216,9 @@ public class JugadorDAO {
                 LocalDate fechaIns = fechaI.toLocalDate();
                 String correo = rs.getString("correo_electronico");
                 String contrasenia = rs.getString("contrasenia");
+                int rol = rs.getInt("rol");
                 
-                jug = new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia);
+                jug = new JugadorDTO(nombre, apellidos, fechaN, fechaIns, correo, contrasenia, rol);
             }
 
 

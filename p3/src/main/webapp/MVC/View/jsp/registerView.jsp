@@ -29,16 +29,16 @@ if (customerBean != null && !customerBean.getEmailUser().equals("")) {
 <%= messageNextPage %><br/><br/>
 <form method="post" action="../../Controller/register/registerController.jsp">
 	<label for="correo_electronico">Email: </label>
-    <input type="text" name="correo_electronico" value=""><br/>
+    <input type="text" name="correo_electronico" value="" required><br/>
 
     <label for="contrasenia">Password: </label>
-    <input type="password" name="contrasenia" value=""><br/>
+    <input type="password" name="contrasenia" value="" required><br/>
 
     <label for="nombre">Nombre: </label>
-    <input type="text" name="nombre" value=""><br/>
+    <input type="text" name="nombre" value="" required><br/>
 
     <label for="apellidos">Apellidos: </label>
-    <input type="text" name="apellidos" value=""><br/>
+    <input type="text" name="apellidos" value="" required><br/>
 
     <label for="fecha_nacimiento">Fecha de Nacimiento (dd/mm/yyyy): </label>
     <input 
@@ -62,7 +62,7 @@ if (customerBean != null && !customerBean.getEmailUser().equals("")) {
         required>
     <br/>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Registrarse">
 </form>
 
 <%

@@ -1,0 +1,53 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+}
+
+/* Contenedor del menú */
+.menu-container {
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Ajusta el ancho del contenedor */
+    text-align: center;
+}
+
+/* Título del menú */
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Botones del menú */
+.menu-button {
+    display: block;
+    width: 90%; /* Asegúrate de que los botones se mantengan dentro del contenedor */
+    max-width: 300px; /* Define un máximo para evitar desbordamientos */
+    margin: 10px auto; /* Centra los botones automáticamente */
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.menu-button:hover {
+    background-color: #45a049;
+}
+
+.menu-button:active {
+    background-color: #3e8e41;
+}
+
