@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/styles.css">
 <title>Log in</title>
 </head>
 <body>
@@ -32,7 +33,7 @@ if (customerBean != null && !customerBean.getEmailUser().equals("")) {
 	<label for="contrasenia">Password: </label>
 	<input type ="password" name="contrasenia" value="">
 	<br/>
-	<input type="submit" value="Submit">
+	<input type="submit" value="Acceder">
 </form>
 <%
 }

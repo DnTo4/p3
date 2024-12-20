@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="../css/styles.css">
 <title>Register</title>
 </head>
 <body>
@@ -28,12 +29,42 @@ if (customerBean != null && !customerBean.getEmailUser().equals("")) {
 <%= messageNextPage %><br/><br/>
 <form method="post" action="../../Controller/register/registerController.jsp">
 	<label for="correo_electronico">Email: </label>
-	<input type ="text" name="correo_electronico" value=""><br/>
-	<label for="contrasenia">Password: </label>
-	<input type ="password" name="contrasenia" value="">
-	<br/>
-	<input type="submit" value="Submit">
+    <input type="text" name="correo_electronico" value=""><br/>
+
+    <label for="contrasenia">Password: </label>
+    <input type="password" name="contrasenia" value=""><br/>
+
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre" value=""><br/>
+
+    <label for="apellidos">Apellidos: </label>
+    <input type="text" name="apellidos" value=""><br/>
+
+    <label for="fecha_nacimiento">Fecha de Nacimiento (dd/mm/yyyy): </label>
+    <input 
+        type="text" 
+        id="fecha_nacimiento" 
+        name="fecha_nacimiento" 
+        placeholder="dd/mm/yyyy" 
+        pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$" 
+        title="Introduce la fecha en formato dd/mm/yyyy"
+        required>
+    <br/>
+
+    <label for="fecha_inscripcion">Fecha de Inscripción (dd/mm/yyyy): </label>
+    <input 
+        type="text" 
+        id="fecha_inscripcion" 
+        name="fecha_inscripcion" 
+        placeholder="dd/mm/yyyy" 
+        pattern="^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[0-2])/\d{4}$" 
+        title="Introduce la fecha en formato dd/mm/yyyy"
+        required>
+    <br/>
+
+    <input type="submit" value="Submit">
 </form>
+
 <%
 }
 %>

@@ -14,13 +14,17 @@ String nextPage = "../../View/jsp/registerView.jsp";
 String mensajeNextPage = "";
 //Caso 2
 if (customerBean == null || customerBean.getEmailUser().equals("")) {
-String emailUser = request.getParameter("correo_electronico");
-String password = request.getParameter("contrasenia");
+	String emailUser = request.getParameter("correo_electronico");
+	String password = request.getParameter("contrasenia");
+	String nombre = request.getParameter("nombre");
+	String apellidos = request.getParameter("apellidos");
+	String fechaNacimiento = request.getParameter("fecha_nacimiento");
+	String fechaInscripcion = request.getParameter("fecha_inscripcion");
 
 //Caso 2.a: Hay parámetros -> procede de la VISTA
 if (emailUser != null) {
 	//Se accede a bases de datos para obtener el usuario
-	JugadorDTO jugador = new JugadorDTO("prueba", "prueba", "16/08/2004", "25/03/2023", emailUser, password);
+	JugadorDTO jugador = new JugadorDTO(nombre, apellidos, fechaNacimiento, fechaInscripcion, emailUser, password);
 	
 	JugadorDAO jugadorDAO = new JugadorDAO();
 	jugadorDAO.addJugador(jugador);
