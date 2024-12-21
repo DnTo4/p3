@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet("/reserva")
-public class ReservaServlet extends HttpServlet {
+@WebServlet("/CrearReservaServlet")
+public class CrearReservaServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;
     private GestorReservas gestorReservas = new GestorReservas();
@@ -158,4 +158,5 @@ public class ReservaServlet extends HttpServlet {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error en la consulta de reservas.");
         }
+    }
 }
