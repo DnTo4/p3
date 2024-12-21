@@ -73,7 +73,8 @@ public class GestorReservas {
 		return reserva;
 	}
 
-	public List<ReservasDTO> consultarReservasPorRangoFechas(Date fechaInicio, Date fechaFin) {
+	public List<ReservasDTO> consultarReservasPorRangoFechas(Date fechaInicio, Date fechaFin) 
+	{
 		return reservaDAO.listarReservasPorRangoFechas(fechaInicio, fechaFin);
 	}
 
