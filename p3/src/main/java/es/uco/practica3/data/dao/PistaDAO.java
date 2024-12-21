@@ -197,4 +197,28 @@ public class PistaDAO {
     	
     	 return status;
     }
+    
+    public int modificarEstadoMat(int tipo, int estado)
+    {
+    	int status = 0;
+    	try {
+    		
+    		String sql = "UPDATE materiales SET estado = ? WHERE id = (SELECT id FROM materiales WHERE tipo = ? ORDER BY id ASC LIMIT 1)";
+    		DBConnection dbConnection = new DBConnection();
+            Connection con = dbConnection.getConnection();
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, estado);
+            stmt.setInt(2, tipo);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()) {status = rs.getInt("id");}
+    	}catch(SQLException e)
+    	{
+    		System.err.println("Error al modificar el material: " + e.getMessage());
+            return -1;
+    	}
+    	return status;
+    }
 }
