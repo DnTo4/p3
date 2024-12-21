@@ -22,7 +22,7 @@ public class GestorPistas {
 		return pistaDAO.crearPista(pista);
 	}
 	
-	public List<PistaDTO> ListarPistas()
+	public List<PistaDTO> listarPistas()
 	{
 		return pistaDAO.ListarPistas();
 	}
@@ -47,7 +47,7 @@ public class GestorPistas {
 	
 	public int asociar(String nombre, int tipo, int uso)
 	{		
-		MaterialDTO mat = new MaterialDTO(tipo, uso, 1, -1);
+		MaterialDTO mat = new MaterialDTO(tipo, uso, 2, -1);
 		PistaDTO pista = new PistaDTO(nombre, -1, -1, -1, -1);
 		
 		return matDAO.asociarMaterialPista(pista, mat);
@@ -60,7 +60,7 @@ public class GestorPistas {
 		return  matDAO.borrarMaterial(mat);
 	}
 	
-	public List<MaterialDTO> ListarMat()
+	public List<MaterialDTO> listarMat()
 	{
 		return matDAO.listarMateriales();
 	}

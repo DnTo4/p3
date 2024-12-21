@@ -28,7 +28,7 @@ h1 {
     max-width: 300px;
     margin: 10px auto;
     padding: 15px;
-    background-color: #4CAF50;
+    background-color: #007BFF; /* Azul principal */
     color: white;
     border: none;
     border-radius: 5px;
@@ -39,9 +39,10 @@ h1 {
 }
 
 .menu-button:hover {
-    background-color: #45a049;
+    background-color: #0056b3; /* Azul más oscuro */
 }
 
 .menu-button:active {
-    background-color: #3e8e41;
+    background-color: #004494; /* Azul aún más oscuro */
 }
+

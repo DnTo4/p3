@@ -152,6 +152,7 @@ public class MaterialDAO {
 				if(insertar == 1)
 				{
 					mat.setId_pista(pistaID);
+					borrarMaterial(mat);
 					int res = crearMaterial(mat);
 					return res;
 				}

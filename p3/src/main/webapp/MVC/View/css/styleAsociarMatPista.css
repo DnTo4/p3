@@ -1,0 +1,100 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e8f1f8; /* Fondo azul claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Contenedor del formulario */
+form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0077cc; /* Azul fuerte */
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+/* Etiquetas */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+    text-align: left;
+    color: #0056a3; /* Azul oscuro */
+}
+
+/* Checklist */
+.checklist {
+    text-align: left;
+    margin: 10px 0 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.checkbox-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Aumenta el tamaño de los checkboxes */
+    cursor: pointer;
+}
+
+.checkbox-item label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Botón de enviar */
+button {
+    background-color: #0077cc; /* Azul fuerte */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056a3; /* Azul más oscuro */
+}
+
+button:active {
+    background-color: #004080; /* Azul más intenso */
+}
+
+/* Estilo para el mensaje debajo del formulario */
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8d7da; /* Fondo rojo claro */
+    color: #721c24; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+}
