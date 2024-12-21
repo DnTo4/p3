@@ -37,7 +37,7 @@
         }
         String correo = request.getParameter("correo");
 
-        // Llamar al GestorPistas
+        // Llamar al GestorReservas
         GestorReservas gestor = new GestorReservas();
         int resultado;
         ReservasDTO reserva= new ReservasDTO();

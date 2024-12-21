@@ -13,11 +13,6 @@
         function validarFormulario(event) {
             const fecha = document.getElementById("fecha").value;
             const tipo = document.getElementById("tipo").value;
-            const duracion = document.getElementById("duracion").value;
-            if (duracion <= 0) {
-                alert("La duración debe ser mayor que 0.");
-                event.preventDefault();
-            }
             const num_ninios = document.getElementById("num_ninios").value;
             if (num_ninios <= 0 && tipo==1) {
                 alert("El número de niños debe ser mayor que 0.");
