@@ -194,17 +194,15 @@ public class ReservaDAO {
 			if (!id.next()) {
 				return;
 			}
-			String sql = "UPDATE reservas SET fecha = ?, duracion = ?, id_pista = ?, precio = ?, descuento = ?, tipo_reserva = ?, num_ninios = ?, num_adultos = ? WHERE id = ?";
+			String sql = "UPDATE reservas SET fecha = ?, duracion = ?, id_pista = ?, precio = ?, num_ninios = ?, num_adultos = ? WHERE id = ?";
 			ps = con.prepareStatement(sql);
 			ps.setDate(1, new java.sql.Date(reserva.getFecha().getTime()));
 			ps.setInt(2, reserva.getDuracion());
 			ps.setInt(3, reserva.getId_pista());
 			ps.setFloat(4, reserva.getPrecio());
-			ps.setFloat(5, reserva.getDescuento());	
-			ps.setInt(6, reserva.getTipo_reserva());
-			ps.setInt(7, reserva.getNum_ninios());
-			ps.setInt(8, reserva.getNum_adultos());
-			ps.setInt(9, id.getInt("id"));
+			ps.setInt(5, reserva.getNum_ninios());
+			ps.setInt(6, reserva.getNum_adultos());
+			ps.setInt(7, id.getInt("id"));
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.err.println(e);

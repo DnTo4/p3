@@ -26,11 +26,11 @@ public class GestorReservas {
 		return reserva;
 	}
 	
-	public boolean modificarReserva(Date fecha,int duracion,int id_pista,float precio,float descuento,int tipo_reserva,int num_ninios,int num_adultos)
+	public boolean modificarReserva(Date fecha,int duracion,int id_pista,float precio,int num_ninios,int num_adultos)
 	{
 		if( duracion >= 1 && id_pista >= 0 && num_ninios >= 0 && num_adultos >= 0)
 		{
-			ReservasDTO reserva = new ReservasDTO(fecha,duracion,id_pista,precio,descuento,tipo_reserva,num_ninios,num_adultos,-1,-1);
+			ReservasDTO reserva = new ReservasDTO(fecha,duracion,id_pista,precio,0,0,num_ninios,num_adultos,-1,-1);
 			reservaDAO.modificarReserva(reserva);
 			return true;
 		}

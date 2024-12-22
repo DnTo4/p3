@@ -35,16 +35,8 @@
             <option value="120">120 minutos</option>
         </select><br>
 
-		<label>Pista:</label>
-        <select name="id_pista">
-            <% if (pistasDisponibles==null) { %>
-                <option value="">No hay pistas disponibles</option>
-            <% } else { %>
-                <% for (PistaDTO pista : pistasDisponibles) { %>
-                    <option value="<%= pista.getId() %>"><%= pista.getNombre() %></option>
-                <% } %>
-            <% } %>
-        </select><br>
+		<label for="id_pista">Identificador de la pista asociada:</label>
+        <input type="number" id="id_pista" name="id_pista" required><br>
 
         <label>Número de niños:</label>
         <input type="number" name="num_ninios"  /><br>

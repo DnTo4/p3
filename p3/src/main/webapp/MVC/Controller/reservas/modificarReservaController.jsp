@@ -34,7 +34,7 @@
             // Llamar al DAO para actualizar el estado de la reserva
             GestorReservas gestor = new GestorReservas();
         	boolean resultado;
-            resultado = gestor.modificarReserva(fecha, duracion, id_pista, precio, descuento, tipo_reserva, num_ninios, num_adultos, correo);
+            resultado = gestor.modificarReserva(fecha, duracion, id_pista, precio, num_ninios, num_adultos);
         
             if (resultado == true) {
                 // Redirigir a la página de éxito si la actualización fue exitosa
