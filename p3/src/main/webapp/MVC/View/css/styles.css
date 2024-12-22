@@ -14,7 +14,7 @@ form {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    width: 300px;
+    width: 400px; /* Aumentar el ancho */
     margin: 0 auto;
 }
 
@@ -30,7 +30,7 @@ input, select {
     box-sizing: border-box;
 }
 
-button {
+input[type="submit"] {
     margin-top: 15px;
     padding: 10px 15px;
     background-color: #0056b3;
@@ -38,10 +38,21 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave */
 }
 
-button:hover {
-    background-color: #004494;
+input[type="submit"]:hover {
+    background-color: #004494; /* Cambio de color al pasar el cursor */
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* Espaciado entre opciones */
+}
+
+.radio-item label {
+    margin-left: 8px; /* Separación del botón */
 }
 
 a {
@@ -53,4 +64,45 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    form {
+        width: 90%; /* Asegúrate de que ocupe la mayoría del espacio disponible */
+    }
+
+    input, select {
+        width: 100%; /* Asegura que los campos se ajusten */
+    }
+}
+.checklist {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* Asegura que las opciones estén en una columna */
+    gap: 8px; /* Añade espacio entre cada opción */
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    transition: background-color 0.2s;
+}
+
+.radio-item:hover {
+    background-color: #eaeaea; /* Cambia el color de fondo al pasar el ratón */
+}
+
+.radio-item input[type="radio"] {
+    margin-right: 10px; /* Espacio entre el botón y el texto */
+    accent-color: #0056b3; /* Cambia el color del botón radio */
+}
+
+.radio-item label {
+    margin: 0;
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    color: #333; /* Define el color del texto */
 }

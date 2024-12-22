@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="es.uco.practica3.business.gestores.GestorPistas" %>
+<%@ page import="es.uco.practica3.business.DTO.PistaDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +39,20 @@
             <option value="120">120 minutos</option>
         </select><br>
 
-		<label for="id_pista">Identificador de la pista asociada:</label>
-        <input type="number" id="id_pista" name="id_pista" required><br>
-
+		<!-- Checklist de pistas -->
+        <label>Elige una Pista:</label>
+        <div class="checklist">
+    <%
+    	GestorPistas gestor = new GestorPistas();
+        List<PistaDTO> pistas = gestor.listarPistas(); 
+        for (PistaDTO pista : pistas) {
+    	%>
+    		<div class="radio-item" style="display: flex; align-items: center;">
+        		<input type="radio" name="pista" value="<%=pista.getNombre()%>" id="pista-<%=pista.getNombre()%>" style="margin-right: 8px;">
+        		<label for="pista-<%=pista.getNombre()%>"><%=pista.getNombre()%></label>
+    		</div>
+    <% } %>
+    </div>
         <label>Número de niños:</label>
         <input type="number" name="num_ninios"  /><br>
         

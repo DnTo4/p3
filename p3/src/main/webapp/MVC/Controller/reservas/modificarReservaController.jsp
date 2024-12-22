@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="es.uco.practica3.data.dao.ReservaDAO" %>
 <%@ page import="es.uco.practica3.business.gestores.GestorReservas" %>
+<%@ page import="es.uco.practica3.business.gestores.GestorPistas" %>
+<%@ page import="es.uco.practica3.business.DTO.ReservasDTO" %>
+<%@ page import="es.uco.practica3.business.DTO.PistaDTO" %>
+<%@ page import="java.util.Date" %>
 <%
     // Inicializar variables
     String nextPage = "../../View/jsp/reservas/modificarReservaError.jsp";
@@ -10,7 +14,10 @@
    	String fechaParam = request.getParameter("fecha");
 	java.sql.Date fecha = java.sql.Date.valueOf(fechaParam);
     int duracion = Integer.parseInt(request.getParameter("duracion"));
-    int id_pista = Integer.parseInt(request.getParameter("id_pista"));
+    String pista_nombre = request.getParameter("pista");
+    GestorPistas gestorP= new GestorPistas();
+    PistaDTO pista= gestorP.buscarPistaNombre(pista_nombre);
+    int id_pista=pista.getId();
     int precio;
     if(duracion == 60)
     {

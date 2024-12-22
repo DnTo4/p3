@@ -1,0 +1,146 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f8ff; /* Fondo azul muy claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Contenedor del formulario */
+form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    width: 450px;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 26px;
+    margin-bottom: 40px;  /* Aumenté el margen a 40px */
+    color: #0066cc; /* Azul fuerte */
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+/* Etiquetas */
+label {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px 0;  /* Reducido el margen */
+    display: block;
+    text-align: left;
+    color: #004080; /* Azul muy oscuro */
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;  /* Reducido el margen */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    border-color: #0077cc;
+    outline: none;
+}
+
+/* Checklist */
+.checklist {
+    text-align: left;
+    margin: 10px 0 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+.radio-item {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.radio-item input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2); /* Aumenta el tamaño de los radio buttons */
+    cursor: pointer;
+}
+
+.radio-item label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Botón de enviar */
+input[type="submit"] {
+    background-color: #0077cc; /* Azul fuerte */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056a3; /* Azul más oscuro */
+    transform: scale(1.02);
+}
+
+input[type="submit"]:active {
+    background-color: #004080; /* Azul más intenso */
+}
+
+/* Estilo para mensajes de validación */
+.message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fbe4e6; /* Fondo rojo claro */
+    color: #d32f2f; /* Texto rojo oscuro */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Mejoras adicionales */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+select {
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}

@@ -16,6 +16,11 @@
 </head>
 <body>
     <% 
+    	if (customerBean == null || customerBean.getEmailUser() == "")
+		{
+			response.sendRedirect("/p3");
+		}
+    
         if (customerBean.getRol() == 0) {
             response.sendRedirect("/p3/MVC/View/jsp/menuCliente.jsp");
         } else {

@@ -1,3 +1,7 @@
+<%@ page import="es.uco.practica3.business.gestores.GestorPistas" %>
+<%@ page import="es.uco.practica3.business.DTO.PistaDTO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Date" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +16,20 @@
         <label for="fecha">Fecha de la Reserva:</label>
         <input type="date" id="fecha" name="fecha" required><br>
         
-        <label for="id_pista">Identificador de la pista asociada:</label>
-        <input type="number" id="id_pista" name="id_pista" required><br>
+        <!-- Checklist de pistas -->
+        <label>Pista Reservada:</label>
+        <div class="checklist">
+    <%
+    	GestorPistas gestor = new GestorPistas();
+        List<PistaDTO> pistas = gestor.listarPistas(); 
+        for (PistaDTO pista : pistas) {
+    	%>
+    		<div class="radio-item" style="display: flex; align-items: center;">
+        		<input type="radio" name="pista" value="<%=pista.getNombre()%>" id="pista-<%=pista.getNombre()%>" style="margin-right: 8px;">
+        		<label for="pista-<%=pista.getNombre()%>"><%=pista.getNombre()%></label>
+    		</div>
+    <% } %>
+    </div>
 
         <input type="submit" value="Cancelar Reserva">
     </form>

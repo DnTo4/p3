@@ -197,4 +197,31 @@ public class PistaDAO {
     	
     	 return status;
     }
+    
+    public PistaDTO buscarPistaNombre(String nombre) {
+        PistaDTO pista = new PistaDTO();
+        String sql = "SELECT id FROM pistas WHERE nombre = ?";
+        try {
+            DBConnection dbConnection = new DBConnection();
+            Connection con = dbConnection.getConnection();
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setString(1, nombre);
+
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next())
+            {
+            	pista.setId(rs.getInt("id"));
+            }
+
+            if (stmt != null) {
+                stmt.close();
+            }
+
+            } catch (SQLException e) {
+                System.err.println("Error al realizar la búsqueda de pistas disponibles: " + e.getMessage());
+            }
+            return pista;
+        }
 }
