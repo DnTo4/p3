@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import ="es.uco.practica3.business.DTO.JugadorDTO,es.uco.practica3.data.dao.JugadorDAO" %>
+<%@ page import ="es.uco.practica3.display.CustomerBean" %>
 <%@page errorPage="errorPage.jsp" %>
 <jsp:useBean  id="customerBean" scope="session" class="es.uco.practica3.display.CustomerBean"></jsp:useBean>
 <%
