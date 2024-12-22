@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Modificar Estado de Pista</title>
-    <link rel="stylesheet" type="text/css" href="../../../View/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/p3/MVC/View/css/styles.css">
 </head>
 <body>
     <div class="container">

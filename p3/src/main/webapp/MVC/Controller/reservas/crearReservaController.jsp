@@ -31,7 +31,7 @@
         {
         	precio=40;
         }
-        int descuento;
+        int descuento=0;
         int tipo_reserva = Integer.parseInt(request.getParameter("tipo_reserva"));
         int num_ninios = Integer.parseInt(request.getParameter("num_ninios"));
         int num_adultos = Integer.parseInt(request.getParameter("num_adultos"));

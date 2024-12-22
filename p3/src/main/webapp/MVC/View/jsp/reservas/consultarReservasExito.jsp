@@ -57,7 +57,7 @@
         </tbody>
     </table>
     <div class="buttons">
-        <a href="../../View/menuCliente.jsp" class="btn">Volver al menú principal</a>
+        <a href="/p3/MVC/View/jsp/menuAdmin.jsp" class="btn">Volver al menú principal</a>
     </div>
 </body>
 </html>

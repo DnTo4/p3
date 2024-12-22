@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Crear Pista</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/p3/MVC/View/css/styles.css">
     <script>
         function validarFormulario(event) {
             const jugadoresMax = document.getElementById("jugadores_max").value;

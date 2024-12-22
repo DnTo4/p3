@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Error en la eliminación de la reserva</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../View/css/stylesReserva.css">
 </head>
 <body>
     <h1>Error en la eliminación de la reserva</h1>

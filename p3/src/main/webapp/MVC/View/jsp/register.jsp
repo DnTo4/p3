@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba de MVC</title>
+    <title>Registro exitoso</title>
     <link rel="stylesheet" href="/p3/MVC/View/css/stylesRegistro.css">
 </head>
 <body>

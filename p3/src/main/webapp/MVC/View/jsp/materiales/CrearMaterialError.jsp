@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Error en la creación del material</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/p3/MVC/View/css/styles.css">
 </head>
 <body>
     <h1>Error</h1>

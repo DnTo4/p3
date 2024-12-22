@@ -10,7 +10,7 @@
     <p><%= request.getAttribute("mensaje") %></p>
     <div class="buttons">
         <a href="../../View/jsp/reservas/consultarReservas.jsp" class="btn">Volver al formulario</a>
-        <a href="../../View/menuCliente.jsp" class="btn">Volver al menú principal</a>
+        <a href="/p3/MVC/View/jsp/menuAdmin.jsp" class="btn">Volver al menú principal</a>
     </div>
 </body>
 </html>
