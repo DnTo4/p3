@@ -13,6 +13,11 @@
 </head>
 <body>
     <%
+    
+    	if (customerBean == null || customerBean.getEmailUser() == "")
+    	{
+    		response.sendRedirect("/p3");
+    	}
         // Obtener datos del CustomerBean
         String nombre = customerBean.getNombre();
         String fechaInscripcion = customerBean.getFechaInscripcion(); // Fecha de inscripción
