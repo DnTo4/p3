@@ -8,7 +8,7 @@
 <html>
 <head>
     <title>Crear Reserva</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../css/stylesReserva.css">
     <script>
         function validarFormulario(event) {
             const fecha = document.getElementById("fecha").value;
@@ -39,8 +39,21 @@
             <option value="120">120 minutos</option>
         </select><br>
 
-		<label for="id_pista">Identificador de la pista asociada:</label>
-        <input type="number" id="id_pista" name="id_pista" required><br>
+		<!-- Checklist de pistas -->
+        <label>Elige una pista:</label>
+        <div class="checklist">
+    <%
+    	GestorPistas gestor = new GestorPistas();
+        List<PistaDTO> pistas = gestor.listarPistas(); 
+        for (PistaDTO pista : pistas) {
+    	%>
+    		<div class="radio-item" style="display: flex; align-items: center;">
+        		<input type="radio" name="pista" value="<%=pista.getNombre()%>" id="pista-<%=pista.getNombre()%>" style="margin-right: 8px;">
+        		<label for="pista-<%=pista.getNombre()%>"><%=pista.getNombre()%></label>
+    		</div>
+    <% } %>
+    </div>
+    
         
         <label>Tipo:</label>
         <select name="tipo">

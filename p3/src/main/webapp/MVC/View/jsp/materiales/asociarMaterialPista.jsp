@@ -47,7 +47,7 @@
         <label>Elige una pista:</label>
         <div class="checklist">
     <%
-        List<PistaDTO> pistas = gestor.listarPistas(); // Asumiendo que tienes el DAO correspondiente
+        List<PistaDTO> pistas = gestor.listarPistas(); 
         for (PistaDTO pista : pistas) {
     	%>
     		<div class="radio-item" style="display: flex; align-items: center;">

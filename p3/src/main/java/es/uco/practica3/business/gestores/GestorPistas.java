@@ -79,4 +79,9 @@ public class GestorPistas {
 	{
 		return matDAO.modificarEstadoMat(tipo, estado);
 	}
+	
+	public PistaDTO buscarPistaNombre(String nombre)
+	{
+		return pistaDAO.buscarPistaNombre(nombre);
+	}
 }
