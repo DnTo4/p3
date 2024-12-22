@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú de Administración</title>
     <link rel="stylesheet" href="../css/stylesMenuAdmin.css">
+    <link rel="stylesheet" href="../css/tablas.css">
 </head>
 <body>
     <% 
@@ -28,7 +29,7 @@
         <a href="/p3/MVC/View/jsp/Pistas/CrearPista.jsp" class="menu-button">Dar de alta una pista</a>
         <a href="/p3/MVC/View/jsp/materiales/asociarMaterialPista.jsp" class="menu-button">Asociar materiales a pistas</a>
         <a href="/p3/MVC/View/jsp/ModificarMaterialesYPistas.jsp" class="menu-button">Modificar el estado de materiales y pistas</a>
-        <a href="#" class="menu-button">Eliminar reservas que aún no se hayan realizado</a>
+        <a href="/p3/MVC/View/jsp/reservas/borrarReserva.jsp" class="menu-button">Eliminar reservas que aún no se hayan realizado</a>
         <a href="/p3/MVC/View/jsp/logout.jsp" class="menu-button">Desconectarse</a>
         
         <h2>Listado de Jugadores</h2>

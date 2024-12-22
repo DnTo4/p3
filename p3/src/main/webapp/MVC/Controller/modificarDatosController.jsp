@@ -20,7 +20,7 @@
         String fechaNacimiento = request.getParameter("fecha_nacimiento");
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
-        Date fecha = sdf.parse(fechaNacimiento); // Convertir el string a Date
+		java.sql.Date fecha = java.sql.Date.valueOf(fechaNacimiento);
         String contrasenia = request.getParameter("contrasenia");
 
         // Comprobamos que los parámetros no estén vacíos
@@ -42,7 +42,7 @@
                 customerBean.setContrasenia(contrasenia);
                 
                 // Redirigir al perfil o página de éxito
-                nextPage = "../../View/jsp/modificarDatosSuccess.jsp"; // Página de éxito o perfil
+                nextPage = "../View/jsp/modificarDatosSuccess.jsp"; // Página de éxito o perfil
                 mensajeNextPage = "Datos modificados correctamente";
             } else {
                 // Si ocurre un error al actualizar, mostramos un mensaje de error
@@ -58,9 +58,7 @@
         nextPage = "../../View/jsp/login.jsp";
         mensajeNextPage = "Debes iniciar sesión para modificar tus datos.";
     }
-
+ // Redirigir a la página correspondiente
+    response.sendRedirect(nextPage+"?message="+mensajeNextPage);
 %>
 
-<jsp:forward page="<%=nextPage%>">
-    <jsp:param value="<%=mensajeNextPage%>" name="message"/>
-</jsp:forward>

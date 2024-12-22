@@ -10,7 +10,7 @@
     <p>El estado de la reserva se ha modificado correctamente.</p>
     <div class="buttons">
         <a href="../../View/jsp/reservas/modificarReserva.jsp" class="btn">Volver al formulario</a>
-        <a href="../../View/html/menuAdmin.html" class="btn">Volver al menú principal</a>
+        <a href="../../View/jsp/menuAdmin.jsp" class="btn">Volver al menú principal</a>
     </div>
 </body>
 </html>
