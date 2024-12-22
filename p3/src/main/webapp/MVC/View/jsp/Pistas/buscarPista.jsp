@@ -16,7 +16,7 @@
 </head>
 <body>
     <h1>Buscar Pista Disponible</h1>
-    <form action="../../../Controller/pistas/BuscarPistaController.jsp" method="post" onsubmit="validarFormulario(event)">
+    <form action="../../../Controller/pistas/buscarPistaController.jsp" method="post" onsubmit="validarFormulario(event)">
         <label>Tipo de Pista:</label>
         <select name="tipo" required>
             <option value="1">Interior</option>

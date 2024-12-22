@@ -77,6 +77,6 @@ public class GestorPistas {
 	
 	public int modificarEstadoMat(int tipo, int estado)
 	{
-		return pistaDAO.modificarEstadoMat(tipo, estado);
+		return matDAO.modificarEstadoMat(tipo, estado);
 	}
 }

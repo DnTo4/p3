@@ -126,7 +126,7 @@ public class PistaDAO {
 
     public List<PistaDTO> buscarPistasDisponibles(int tipo, Date fecha) {
     List<PistaDTO> lista = new ArrayList<>();
-    String sql = "SELECT * FROM pistas WHERE tipo = ? AND p.id NOT IN (SELECT id_pista FROM reservas WHERE fecha = ?) AND estado = 1";
+    String sql = "SELECT * FROM pistas WHERE tipo = ? AND id NOT IN (SELECT id_pista FROM reservas WHERE fecha = ?) AND estado = 1";
     try {
         DBConnection dbConnection = new DBConnection();
         Connection con = dbConnection.getConnection();
@@ -134,7 +134,7 @@ public class PistaDAO {
         PreparedStatement stmt = con.prepareStatement(sql);
 
         stmt.setInt(1, tipo);  // Tipo de pista (interior o exterior)
-        stmt.setDate(2, fecha); // Fecha de búsqueda
+        stmt.setString(2, fecha.toString()); // Fecha de búsqueda
 
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
@@ -196,29 +196,5 @@ public class PistaDAO {
         }
     	
     	 return status;
-    }
-    
-    public int modificarEstadoMat(int tipo, int estado)
-    {
-    	int status = 0;
-    	try {
-    		
-    		String sql = "UPDATE materiales SET estado = ? WHERE id = (SELECT id FROM materiales WHERE tipo = ? ORDER BY id ASC LIMIT 1)";
-    		DBConnection dbConnection = new DBConnection();
-            Connection con = dbConnection.getConnection();
-            
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1, estado);
-            stmt.setInt(2, tipo);
-            
-            ResultSet rs = stmt.executeQuery();
-            
-            if(rs.next()) {status = rs.getInt("id");}
-    	}catch(SQLException e)
-    	{
-    		System.err.println("Error al modificar el material: " + e.getMessage());
-            return -1;
-    	}
-    	return status;
     }
 }

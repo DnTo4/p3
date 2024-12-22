@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Error en Búsqueda</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
     <h1>Error en la Búsqueda</h1>

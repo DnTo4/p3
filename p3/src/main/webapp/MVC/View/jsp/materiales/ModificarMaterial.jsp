@@ -14,7 +14,7 @@
             <option value="2">Conos</option>
             <option value="3">Pelotas</option>
         </select><br>
-
+        
         <label>Nuevo Estado:</label>
         <select name="estado">
             <option value="1">Disponible</option>

@@ -14,7 +14,7 @@
         GestorPistas gestor = new GestorPistas();
         int resultado = gestor.modificarEstadoMat(tipo, estado);
 
-        if (resultado != 0 && resultado != -1) {
+        if (resultado > 0) {
             // Éxito
             nextPage = "../../View/jsp/materiales/ModificarMaterialExito.jsp";
             mensaje = "El estado del material ha sido modificado exitosamente.";

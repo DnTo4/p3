@@ -205,4 +205,35 @@ public class MaterialDAO {
 			return null; //CUIDADO
 		}
 	}
+	
+	public int modificarEstadoMat(int tipo, int estado)
+    {
+    	int status = 0;
+    	try {
+    		
+    		String sql = "SELECT id FROM materiales WHERE tipo = ? ORDER BY id ASC LIMIT 1;";
+    		String sql2 = "UPDATE materiales SET estado = ? WHERE id = ?";
+    		DBConnection dbConnection = new DBConnection();
+            Connection con = dbConnection.getConnection();
+            
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, tipo);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            if(rs.next()) {status = rs.getInt("id");}
+            
+            PreparedStatement stmt2 = con.prepareStatement(sql2);
+            stmt2.setInt(1, estado);
+            stmt2.setInt(2, status);
+            
+            status = stmt2.executeUpdate();
+            
+    	}catch(SQLException e)
+    	{
+    		System.err.println("Error al modificar el material: " + e.getMessage());
+            return -1;
+    	}
+    	return status;
+    }
 }
