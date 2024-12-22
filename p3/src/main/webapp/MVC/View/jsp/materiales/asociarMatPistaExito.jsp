@@ -10,7 +10,7 @@
     
     <div class="buttons">
         <a href="asociarMaterialPista.jsp" class="btn">Volver al formulario</a>
-        <a href="../../html/menuAdmin.html" class="btn">Volver al menú principal</a>
+        <a href="../menuAdmin.jsp" class="btn">Volver al menú principal</a>
     </div>
 </body>
 </html>
