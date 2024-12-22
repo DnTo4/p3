@@ -28,11 +28,15 @@ if (emailUser != null) {
 	
 	JugadorDAO jugadorDAO = new JugadorDAO();
 	jugadorDAO.addJugador(jugador);
-
+	
 	//Se realizan todas las comprobaciones necesarias del dominio
 	//Aquí sólo comprobamos que exista el usuario
 	if (jugador != null) {
 		// Usuario válido		
+		customerBean.setEmailUser(emailUser);
+		customerBean.setRol(jugador.getRol());
+		customerBean.setNombre(jugador.getNombre() + " " + jugador.getApellidos());
+        customerBean.setFechaInscripcion(jugador.getFechaInscripcion());
 %>
 <jsp:setProperty property="emailUser" value="<%=emailUser%>" name="customerBean"/>
 <%

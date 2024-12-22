@@ -147,6 +147,21 @@ public class JugadorDTO
 	
 	public void setRol(int rol) {this.rol = rol;}
 	
+	public String getFechaInscripcion() {
+        // Formatear la fecha
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.fecha_inscripcion.format(formatter);
+    }
+	
+	public String getFechaNacimiento()
+	{
+		// Crear un objeto SimpleDateFormat con el formato deseado
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+
+		// Convertir la fecha a String
+		return sdf.format(this.fecha_nacimiento);
+	}
+	
 	@Override
 	public String toString() {
 		

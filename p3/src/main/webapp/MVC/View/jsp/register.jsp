@@ -25,7 +25,7 @@
         <% } else { %>
             <h1 class="success">¡Registro Exitoso!</h1>
             <p>¡¡Usuario <jsp:getProperty property="emailUser" name="customerBean"/> agregado correctamente!!</p>
-            <a href="/p3/MVC/View/html/menuCliente.html">Acceder a la web</a>
+            <a href="/p3/MVC/View/jsp/menuCliente.jsp">Acceder a la web</a>
         <% } %>
     </div>
 </body>
