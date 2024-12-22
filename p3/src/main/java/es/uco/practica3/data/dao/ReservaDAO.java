@@ -304,17 +304,17 @@ public class ReservaDAO {
 	}
 
 	// Método para obtener reservas entre un rango de fechas
-	public List<ReservasDTO> listarReservasPorRangoFechas(Date fechaInicio, Date fechaFin) {
+	public List<ReservasDTO> listarReservasPorRangoFechas(Date fechaInicio, Date fechaFin, String correo) {
 		List<ReservasDTO> reservas = new ArrayList<>();
 		DBConnection dbcon = new DBConnection();
 		Connection con = dbcon.getConnection();
 
         	try {
-			String sql = "SELECT * FROM reservas WHERE fecha BETWEEN ? AND ?";
+			String sql = "SELECT * FROM reservas WHERE fecha BETWEEN ? AND ? AND id_jugador = (SELECT id FROM jugadores WHERE correo_electronico = ?)";
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setDate(1, new java.sql.Date(fechaInicio.getTime()));
 			stmt.setDate(2, new java.sql.Date(fechaFin.getTime()));
-
+			stmt.setString(3, correo);
 			ResultSet rs = stmt.executeQuery();
 
 		while (rs.next()) {
