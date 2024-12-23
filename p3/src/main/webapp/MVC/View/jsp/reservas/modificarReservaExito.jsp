@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Reserva Modificada</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/stylesReserva.css">
+    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
     <h1>Estado de la Reserva Modificado</h1>

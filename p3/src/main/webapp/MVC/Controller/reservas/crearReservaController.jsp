@@ -35,11 +35,13 @@
         int tipo_reserva = Integer.parseInt(request.getParameter("tipo_reserva"));
         int num_ninios = Integer.parseInt(request.getParameter("num_ninios"));
         int num_adultos = Integer.parseInt(request.getParameter("num_adultos"));
-        int id_bono = Integer.parseInt(request.getParameter("id_bono"));
+        int id_bono=0;
+        id_bono = Integer.parseInt(request.getParameter("id_bono"));
         if(id_bono !=0)
         {
         	descuento=5;
         }
+        
         String correo = request.getParameter("correo");
 
         // Llamar al GestorReservas

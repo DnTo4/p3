@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Éxito en la eliminación de la reserva</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/stylesReserva.css">
+    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
     <h1>Reserva eliminada con éxito</h1>

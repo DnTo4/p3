@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Error al modificar la reserva</title>
-    <link rel="stylesheet" type="text/css" href="../../View/css/stylesReserva.css">
+    <link rel="stylesheet" type="text/css" href="../../View/css/styles.css">
 </head>
 <body>
     <h1>Error al modificar la reserva</h1>
