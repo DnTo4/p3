@@ -88,24 +88,27 @@ public class JugadorDAO {
      *         1 si se actualiza correctamente.
      */
     public int updateJugador(JugadorDTO jugador) {
-        String sql = "UPDATE jugadores SET nombre = ?, apellidos = ?, fecha_nacimiento = ? WHERE correo_electronico = ?";
-        try {
+        String sql = "UPDATE jugadores SET nombre = ?, apellidos = ?, fecha_nacimiento = ?, contrasenia = ? WHERE correo_electronico = ?";
+        try
+        {
         	DBConnection dbcon = new DBConnection();
-			Connection con = dbcon.getConnection();
-			
-			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, jugador.getNombre());
-	        stmt.setString(2, jugador.getApellidos());
-	        stmt.setDate(3, new java.sql.Date(jugador.getFecha_nacimiento().getTime()));
-	        stmt.setString(4, jugador.getCorreo_electronico());
-	        stmt.setString(5, jugador.getPassword());
-	        return stmt.executeUpdate();
-			
+            Connection con = dbcon.getConnection();
+            PreparedStatement stmt = con.prepareStatement(sql);
+
+            stmt.setString(1, jugador.getNombre());
+            stmt.setString(2, jugador.getApellidos());
+            stmt.setDate(3, new java.sql.Date(jugador.getFecha_nacimiento().getTime()));
+            stmt.setString(4, jugador.getPassword());
+            stmt.setString(5, jugador.getCorreo_electronico());
+
+            return stmt.executeUpdate();
+
         } catch (SQLException e) {
             e.printStackTrace();
             return -1; // Error de SQL
         }
     }
+
 
     /**
      * Elimina un jugador de la base de datos.

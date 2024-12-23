@@ -45,6 +45,7 @@
 <% 
     } // Fin del bloque de verificación de sesión
 %>
+	<a href="/p3/MVC/View/jsp/menuAdmin.jsp" class="btn">Volver al menú principal</a>
 
 </body>
 </html>
