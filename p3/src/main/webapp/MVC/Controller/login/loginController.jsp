@@ -44,7 +44,7 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
     }
 } else {
     // Usuario ya logueado
-    nextPage = "../../View/jsp/menuCliente.jsp";
+    nextPage = "/p3/MVC/View/jsp/menuAdmin.jsp";
 }
 
 // Redirigir a la página correspondiente
