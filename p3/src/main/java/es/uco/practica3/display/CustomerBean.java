@@ -12,7 +12,7 @@ public class CustomerBean implements java.io.Serializable {
     private String apellidos="";
     private String fecha_nacimiento="";
     private String contrasenia="";
-	
+	private int id = 0;
 	
 	public String getApellidos() {
 		return apellidos;
@@ -82,5 +82,14 @@ public class CustomerBean implements java.io.Serializable {
 		this.rol = rol;
 	}
 	
+	public void setId(int id)
+	{
+		this.id = id;
+	}
+	
+	public int getId()
+	{
+		return this.id;
+	}
 
 }

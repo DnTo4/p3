@@ -31,6 +31,7 @@ if (customerBean == null || customerBean.getEmailUser().equals("")) {
                 customerBean.setFecha_nacimiento(jugador.getFechaNacimiento());
                 customerBean.setContrasenia(jugador.getPassword());
                 customerBean.setApellidos(jugador.getApellidos());
+                customerBean.setId(jugador.getId());
                 
                 
             } else {
