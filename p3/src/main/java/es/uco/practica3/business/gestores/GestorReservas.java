@@ -4,13 +4,19 @@ import java.util.Date;
 import java.util.List;
 
 import es.uco.practica3.data.dao.ReservaDAO;
-
+import es.uco.practica3.business.DTO.BonoDTO;
+import es.uco.practica3.data.dao.BonoDAO;
 import es.uco.practica3.business.DTO.ReservasDTO;
 
 public class GestorReservas {
 	
 	private List<ReservasDTO> reservas;
     private ReservaDAO reservaDAO = new ReservaDAO();
+    private BonoDAO bonoDAO = new BonoDAO();
+    
+    public GestorReservas() {
+        
+    }
 	
 	public ReservasDTO crearReservaIndividual(Date fecha,int duracion,int id_pista,float precio,float descuento,int tipo_reserva,int num_ninios,int num_adultos, String correo)
 	{
@@ -76,6 +82,11 @@ public class GestorReservas {
 	public List<ReservasDTO> consultarReservasPorRangoFechas(Date fechaInicio, Date fechaFin, String correo) 
 	{
 		return reservaDAO.listarReservasPorRangoFechas(fechaInicio, fechaFin, correo);
+	}
+	
+	public boolean createBono(BonoDTO bono)
+	{
+		return bonoDAO.createBono(bono);
 	}
 
 }

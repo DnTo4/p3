@@ -46,7 +46,7 @@
         <a href="/p3/MVC/View/jsp/reservas/consultarReservas.jsp" class="menu-button">Consultar reservas entre fechas</a>
         <a href="/p3/MVC/View/jsp/Pistas/buscarPista.jsp" class="menu-button">Buscar pista disponible según criterios</a>
         <a href="/p3/MVC/View/jsp/reservas/crearReserva.jsp" class="menu-button">Realizar una reserva</a>
-        <a href="#" class="menu-button">Adquirir un bono y asociar reservas</a>
+        <a href="/p3/MVC/View/jsp/bonos/crearBono.jsp" class="menu-button">Adquirir un bono y asociar reservas</a>
         <a href="/p3/MVC/View/jsp/reservas/modificarReserva.jsp" class="menu-button">Modificar una reserva</a>
         <a href="/p3/MVC/View/jsp/reservas/borrarReserva.jsp" class="menu-button">Cancelar una reserva</a>
         <a href="/p3/MVC/View/jsp/modificarDatosView.jsp" class="menu-button">Modificar mis Datos</a>

@@ -17,8 +17,6 @@ import java.util.Properties;
  * con los bonos en la base de datos. Proporciona métodos para crear, obtener, actualizar y eliminar bonos.
  */
 public class BonoDAO {
-    
-    private DBConnection dbConnection; // Instancia de conexión a la base de datos.
 
     public BonoDAO() {
     }
@@ -30,7 +28,8 @@ public class BonoDAO {
      * @return true si el bono se creó con éxito, false en caso contrario.
      */
     public boolean createBono(BonoDTO bono) {
-        Connection connection = null;
+    	DBConnection dbConnection = new DBConnection();
+        Connection connection = dbConnection.getConnection();
         PreparedStatement preparedStatement = null;
         boolean created = false;
 
@@ -47,8 +46,6 @@ public class BonoDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeResources(connection, preparedStatement);
         }
         return created;
     }
@@ -60,13 +57,13 @@ public class BonoDAO {
      * @return Un objeto BonoDTO que representa el bono, o null si no se encuentra.
      */
     public BonoDTO getBonoById(int id) {
-        Connection connection = null;
+    	DBConnection dbConnection = new DBConnection();
+        Connection connection = dbConnection.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         BonoDTO bono = null;
 
         try {
-            connection = dbConnection.getConnection();
             String sql = "SELECT * FROM bonos WHERE id = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -82,8 +79,6 @@ public class BonoDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeResources(connection, preparedStatement, resultSet);
         }
         return bono;
     }
@@ -95,13 +90,13 @@ public class BonoDAO {
      * @return Una lista de objetos BonoDTO que representan los bonos asociados al jugador.
      */
     public List<BonoDTO> getBonosByJugadorId(int id_jugador) {
-        Connection connection = null;
+    	DBConnection dbConnection = new DBConnection();
+        Connection connection = dbConnection.getConnection();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         List<BonoDTO> bonos = new ArrayList<>();
 
         try {
-            connection = dbConnection.getConnection();
             String sql = "SELECT * FROM bonos WHERE id_jugador = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id_jugador);
@@ -118,8 +113,6 @@ public class BonoDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeResources(connection, preparedStatement, resultSet);
         }
         return bonos;
     }
@@ -131,12 +124,12 @@ public class BonoDAO {
      * @return true si el bono se actualizó con éxito, false en caso contrario.
      */
     public boolean updateBono(BonoDTO bono) {
-        Connection connection = null;
+    	DBConnection dbConnection = new DBConnection();
+        Connection connection = dbConnection.getConnection();
         PreparedStatement preparedStatement = null;
         boolean updated = false;
 
         try {
-            connection = dbConnection.getConnection();
             String sql = "UPDATE bonos SET tamanio_pista = ?, id_jugador = ?, sesiones = ?, fecha_cad = ? WHERE id = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, bono.getTamanio_pista());
@@ -148,8 +141,6 @@ public class BonoDAO {
             updated = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeResources(connection, preparedStatement);
         }
         return updated;
     }
@@ -161,12 +152,12 @@ public class BonoDAO {
      * @return true si el bono se eliminó con éxito, false en caso contrario.
      */
     public boolean deleteBono(int id) {
-        Connection connection = null;
+    	DBConnection dbConnection = new DBConnection();
+        Connection connection = dbConnection.getConnection();
         PreparedStatement preparedStatement = null;
         boolean deleted = false;
 
         try {
-            connection = dbConnection.getConnection();
             String sql = "DELETE FROM bonos WHERE id = ?";
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
@@ -174,40 +165,6 @@ public class BonoDAO {
             deleted = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            closeResources(connection, preparedStatement);
         }
         return deleted;
     }
-
-    /**
-     * Método auxiliar para cerrar los recursos utilizados para la conexión y la declaración.
-     *
-     * @param connection La conexión a cerrar.
-     * @param preparedStatement La declaración preparara a cerrar.
-     */
-    private void closeResources(Connection connection, PreparedStatement preparedStatement) {
-        try {
-            if (preparedStatement != null) preparedStatement.close();
-            if (connection != null) dbConnection.closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * Método auxiliar para cerrar los recursos, incluyendo el ResultSet.
-     *
-     * @param connection La conexión a cerrar.
-     * @param preparedStatement La declaración preparara a cerrar.
-     * @param resultSet El conjunto de resultados a cerrar.
-     */
-    private void closeResources(Connection connection, PreparedStatement preparedStatement, ResultSet resultSet) {
-        try {
-            if (resultSet != null) resultSet.close();
-            closeResources(connection, preparedStatement);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-}
