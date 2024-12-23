@@ -49,12 +49,16 @@
     <%
         List<PistaDTO> pistas = gestor.listarPistas(); 
         for (PistaDTO pista : pistas) {
+        	if (pista.getEstado() == 1)
+    		{
     	%>
-    		<div class="radio-item" style="display: flex; align-items: center;">
-        		<input type="radio" name="pista" value="<%=pista.getNombre()%>" id="pista-<%=pista.getNombre()%>" style="margin-right: 8px;">
-        		<label for="pista-<%=pista.getNombre()%>"><%=pista.getNombre()%></label>
-    		</div>
-    <% } %>
+    		
+    			<div class="radio-item" style="display: flex; align-items: center;">
+        			<input type="radio" name="pista" value="<%=pista.getNombre()%>" id="pista-<%=pista.getNombre()%>" style="margin-right: 8px;">
+        			<label for="pista-<%=pista.getNombre()%>"><%=pista.getNombre()%></label>
+    			</div>
+    <% 		}
+        }%>
 </div>
 
         <button type="submit">Enviar selección</button>

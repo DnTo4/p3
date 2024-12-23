@@ -23,7 +23,8 @@ if (messageNextPage == null) messageNextPage = "";
 
 if (customerBean != null && !customerBean.getEmailUser().equals("")) {
 	//No debería estar aquí -> flujo salta a index.jsp
-	nextPage = "../../../index.html";
+	nextPage = "/p3/MVC/View/jsp/menuAdmin.jsp";
+	response.sendRedirect(nextPage);
 } else {
 %>
 <%= messageNextPage %><br/><br/>
